@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Children, useState } from 'react';
+import { useState } from 'react';
 
 const Form = () => {
 	const [formData, setFormData] = useState({
@@ -36,10 +36,12 @@ const Form = () => {
 
 	return (
 		<div className='flex h-screen w-full items-center justify-center'>
-			<form className='flex flex-col' onSubmit={handleSubmit}>
+			<form
+				className='flex flex-col w-full max-w-md p-4'
+				onSubmit={handleSubmit}>
 				<label htmlFor='name'>Name</label>
 				<input
-					className='border border-black p-2'
+					className='border border-black p-2 mb-2'
 					placeholder='Enter Name'
 					type='text'
 					name='name'
@@ -51,7 +53,7 @@ const Form = () => {
 				<label htmlFor='email'>Email</label>
 				<input
 					placeholder='Enter Email'
-					className='border border-black p-2'
+					className='border border-black p-2 mb-2'
 					type='email'
 					name='email'
 					id='email'
@@ -62,18 +64,15 @@ const Form = () => {
 				<label htmlFor='textarea'>Enter message</label>
 				<textarea
 					placeholder='Enter Message'
-					className='border border-black p-2'
+					className='border border-black p-2 mb-4'
 					onChange={handleInput}
 					value={formData.message}
 					required
 					name='message'
 					id='textarea'
-					cols='50'
 					rows='5'></textarea>
 
-				<button
-					className='bg-blue-200 mt-4 p-2 rounded-md'
-					type='submit'>
+				<button className='bg-blue-200 p-2 rounded-md' type='submit'>
 					Send
 				</button>
 			</form>
